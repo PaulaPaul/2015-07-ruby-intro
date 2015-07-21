@@ -40,29 +40,36 @@ def roll_dice_hash2
   return [{roll1 => die[roll1]}, {roll2 => die[roll2]}]
 end 
 
-first_roll = rollem_rand
+# Ok. All those methods above are just different ways we can ask the 
+# computer to roll two die and give us the results.
+# The dice game code starts executing below.  Methods don't execute unless 
+# they are 'called' from your code.  The first line below 'calls' roll_dice_rand 
+# and stores the results in a variable called 'first_roll'...
+first_roll = roll_dice_rand
 puts "First roll.  Computer rolled: " + first_roll.inspect
 if first_roll[0] == first_roll[1]
   puts "Wow, doubles!"
 end
-puts " "
 
-second_roll = rollem
+# Just for fun, we'll call the 'roll_dice_array' method for the second roll.
+# The results are stored in the variable 'second_roll'
+second_roll = roll_dice_array
 puts "Second roll.  You rolled: " + second_roll.inspect
 if second_roll[0] == second_roll[1]
   puts "Wow, doubles!"
 end
-# see who wins...
-puts "Let's see who wins:"
-puts ""
+
+# Now that we have the first and second rolls, see who wins...
+puts " "
+puts "Let's add up the rolls and see who wins:"
 first_roll_total = first_roll[0] + first_roll[1]
 second_roll_total = second_roll[0] + second_roll[1]
 
 if  first_roll_total == second_roll_total
-  puts "Computer roll ties your roll, with a total of:" + first_roll_total.to_s
+  puts "Computer roll is the same as your roll, with a total of: " + first_roll_total.to_s + ". Tie!"
 elsif first_roll_total > second_roll_total
-  puts "Computer wins! with a total of:" + first_roll_total.to_s
+  puts "Computer wins with a total of: " + first_roll_total.to_s + ". Better luck next time!"
 else
-  puts "You win! with a total of: " + second_roll_total.to_s
+  puts "You win with a total of: " + second_roll_total.to_s + ". Congrats!"
 end
 
